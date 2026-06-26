@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luyando Cholwe | Food Scientist & Nutritionist</title>
+  <meta name="description" content="Portfolio of Luyando Cholwe – Food Scientist, Nutritionist, and Healthcare Professional based in Chipata, Zambia." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --pink-50:  #FDF0F5;
+      --pink-100: #F9D5E5;
+      --pink-200: #F2A8C6;
+      --pink-400: #D4537E;
+      --pink-600: #993556;
+      --pink-800: #72243E;
+      --gold:     #C9A96E;
+      --gold-lt:  #F5ECD8;
+      --cream:    #FFFAF5;
+      --cream-2:  #FFF5EE;
+      --text:     #1A1A1A;
+      --text-2:   #4A4A4A;
+      --text-3:   #888;
+      --border:   #EDE0E8;
+      --white:    #FFFFFF;
+      --radius:   12px;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+
+    /* ── ACCENT BAR ── */
+    .accent-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--pink-200), var(--pink-400), var(--gold));
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 4px; left: 0; right: 0; z-index: 100;
+      background: rgba(255,250,245,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      height: 60px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2rem;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--pink-600);
+      letter-spacing: 0.3px;
+    }
+    .nav-links {
+      display: flex; gap: 1.75rem; align-items: center;
+    }
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-2);
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+    .nav-links a:hover { color: var(--pink-600); }
+    .nav-cta {
+      background: var(--pink-400);
+      color: white;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-cta:hover { background: var(--pink-600); }
+    .hamburger {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      font-size: 22px; color: var(--pink-600);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      background: var(--white);
+      padding: 120px 2rem 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, var(--pink-50) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 900px; margin: 0 auto;
+      display: flex; gap: 4rem; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-photo {
+      flex-shrink: 0;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: var(--pink-100);
+      border: 4px solid var(--pink-200);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 56px;
+      color: var(--pink-800);
+      font-weight: 600;
+      overflow: hidden;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-eyebrow {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--pink-400);
+      margin-bottom: 10px;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 44px;
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      font-size: 15px;
+      color: var(--pink-600);
+      font-weight: 500;
+      margin-bottom: 16px;
+    }
+    .hero-bio {
+      color: var(--text-2);
+      font-size: 14px;
+      line-height: 1.8;
+      max-width: 480px;
+      margin-bottom: 24px;
+    }
+    .hero-chips {
+      display: flex; gap: 8px; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .chip {
+      background: var(--pink-50);
+      color: var(--pink-800);
+      border: 1px solid var(--pink-100);
+      border-radius: 20px;
+      padding: 4px 14px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    .hero-actions {
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    }
+    .btn-primary {
+      background: var(--pink-400);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex; align-items: center; gap: 7px;
+      transition: background 0.2s;
+      border: none; cursor: pointer; font-family: 'Inter', sans-serif;
+    }
+    .btn-primary:hover { background: var(--pink-600); }
+    .btn-outline {
+      background: white;
+      color: var(--text-2);
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 400;
+      display: flex; align-items: center; gap: 7px;
+      border: 1px solid var(--border);
+      cursor: pointer; transition: border-color 0.2s, color 0.2s;
+      font-family: 'Inter', sans-serif;
+      text-decoration: none;
+    }
+    .btn-outline:hover { border-color: var(--pink-200); color: var(--pink-600); }
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      color: var(--text-3); font-size: 11px;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTION SHELL ── */
+    section { padding: 80px 2rem; }
+    section:nth-child(even) { background: var(--white); }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 40px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--pink-100);
+      position: relative;
+    }
+    .section-heading::after {
+      content: '';
+      position: absolute;
+      bottom: -2px; left: 0;
+      width: 60px; height: 2px;
+      background: var(--pink-400);
+    }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: 16px; }
+    .edu-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .edu-card:hover {
+      border-color: var(--pink-200);
+      box-shadow: 0 2px 16px rgba(212,83,126,0.07);
+    }
+    .edu-icon {
+      width: 46px; height: 46px;
+      border-radius: 10px;
+      background: var(--pink-50);
+      border: 1px solid var(--pink-100);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--pink-600);
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .edu-degree { font-weight: 600; font-size: 14px; margin-bottom: 2px; }
+    .edu-inst { font-size: 13px; color: var(--pink-600); font-weight: 500; margin-bottom: 2px; }
+    .edu-year { font-size: 12px; color: var(--text-3); }
+    .hpcz-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gold-lt);
+      color: #7a5c1e;
+      border: 1px solid #e8d5a8;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      margin-top: 24px;
+    }
+
+    /* ── EXPERIENCE ── */
+    .timeline { position: relative; padding-left: 2rem; }
+    .timeline::before {
+      content: '';
+      position: absolute; left: 6px; top: 6px; bottom: 6px;
+      width: 1.5px;
+      background: linear-gradient(to bottom, var(--pink-200), var(--pink-50));
+    }
+    .tl-item { position: relative; margin-bottom: 2.5rem; }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-dot {
+      position: absolute;
+      left: -2rem; top: 5px;
+      width: 13px; height: 13px;
+      border-radius: 50%;
+      background: white;
+      border: 2.5px solid var(--pink-400);
+    }
+    .tl-header { margin-bottom: 6px; }
+    .tl-role { font-weight: 600; font-size: 15px; }
+    .tl-org { font-size: 13px; color: var(--pink-600); font-weight: 500; margin: 2px 0; }
+    .tl-meta { font-size: 12px; color: var(--text-3); display: flex; gap: 10px; flex-wrap: wrap; }
+    .tl-desc {
+      font-size: 13px;
+      color: var(--text-2);
+      line-height: 1.7;
+      margin-top: 8px;
+    }
+    .tl-desc li {
+      position: relative;
+      padding-left: 14px;
+      margin-bottom: 4px;
+    }
+    .tl-desc li::before {
+      content: '·';
+      position: absolute; left: 0;
+      color: var(--pink-400);
+      font-size: 18px; line-height: 1.4;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .skill-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .skill-card:hover { border-color: var(--pink-200); }
+    .skill-cat {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--pink-400);
+      margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .skill-tag {
+      background: var(--pink-50);
+      color: var(--pink-800);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: 12px;
+    }
+    .lang-row {
+      display: flex; gap: 12px; margin-top: 24px;
+    }
+    .lang-chip {
+      display: flex; align-items: center; gap: 7px;
+      background: var(--gold-lt);
+      color: #7a5c1e;
+      border: 1px solid #e8d5a8;
+      border-radius: 20px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ── HOBBIES ── */
+    .hobbies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .hobby-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .hobby-card:hover { border-color: var(--pink-200); transform: translateY(-3px); }
+    .hobby-emoji { font-size: 32px; margin-bottom: 10px; }
+    .hobby-name { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+    .hobby-desc { font-size: 12px; color: var(--text-3); line-height: 1.5; }
+
+    /* ── DOWNLOADS ── */
+    .downloads-row {
+      display: flex; gap: 16px; flex-wrap: wrap;
+    }
+    .dl-card {
+      flex: 1; min-width: 240px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex; align-items: center; gap: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .dl-card:hover {
+      border-color: var(--pink-200);
+      box-shadow: 0 4px 20px rgba(212,83,126,0.08);
+    }
+    .dl-icon {
+      width: 52px; height: 52px;
+      border-radius: 12px;
+      background: var(--pink-50);
+      border: 1px solid var(--pink-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 24px; color: var(--pink-600);
+      flex-shrink: 0;
+    }
+    .dl-info { flex: 1; }
+    .dl-label { font-size: 11px; color: var(--text-3); margin-bottom: 2px; text-transform: uppercase; letter-spacing: 1px; }
+    .dl-name { font-weight: 600; font-size: 15px; }
+    .dl-sub { font-size: 12px; color: var(--text-3); }
+    .dl-btn {
+      background: var(--pink-50);
+      color: var(--pink-600);
+      border: 1px solid var(--pink-100);
+      border-radius: 20px;
+      padding: 7px 14px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 5px;
+      font-family: 'Inter', sans-serif;
+      white-space: nowrap;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+    .dl-btn:hover { background: var(--pink-100); }
+
+    /* ── CONTACT ── */
+    .contact-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .contact-icon-wrap {
+      width: 64px; height: 64px;
+      border-radius: 50%;
+      background: var(--pink-50);
+      border: 2px solid var(--pink-100);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; color: var(--pink-400);
+      margin: 0 auto 20px;
+    }
+    .contact-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 26px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .contact-sub { font-size: 14px; color: var(--text-2); margin-bottom: 28px; }
+    .contact-links {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: 7px;
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .contact-link.email {
+      background: var(--pink-400); color: white;
+    }
+    .contact-link.email:hover { background: var(--pink-600); }
+    .contact-link.linkedin {
+      background: white;
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+    .contact-link.linkedin:hover { border-color: var(--pink-200); color: var(--pink-600); }
+    .contact-link.location {
+      background: white;
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+    .contact-link.location:hover { border-color: var(--pink-200); color: var(--pink-600); }
+    .contact-link.phone {
+      background: white;
+      color: var(--text-2);
+      border: 1px solid var(--border);
+    }
+    .contact-link.phone:hover { border-color: var(--pink-200); color: var(--pink-600); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--pink-800);
+      color: rgba(255,255,255,0.6);
+      padding: 2rem;
+      text-align: center;
+      font-size: 12px;
+    }
+    footer span { color: var(--pink-200); font-weight: 500; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 700px) {
+      .nav-links { display: none; }
+      .nav-cta { display: none; }
+      .hamburger { display: block; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 2rem; }
+      .hero-name { font-size: 32px; }
+      .hero-photo { width: 140px; height: 140px; font-size: 40px; }
+      .hero-chips { justify-content: center; }
+      .hero-actions { justify-content: center; }
+      .hero-bio { max-width: 100%; }
+      .downloads-row { flex-direction: column; }
+      .contact-links { flex-direction: column; align-items: center; }
+      section { padding: 60px 1.25rem; }
+      nav { padding: 0 1.25rem; }
+    }
+
+    /* ── MOBILE NAV OPEN ── */
+    .mobile-nav {
+      display: none;
+      position: fixed; top: 64px; left: 0; right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      z-index: 99;
+      flex-direction: column;
+      padding: 1rem 1.5rem;
+      gap: 1rem;
+    }
+    .mobile-nav.open { display: flex; }
+    .mobile-nav a {
+      font-size: 15px; color: var(--text-2);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-nav a:last-child { border-bottom: none; }
+  </style>
+</head>
+<body>
+
+  <div class="accent-bar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Luyando Cholwe</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#hobbies">Hobbies</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="nav-cta" href="Luyando_Cholwe_-_Resume_2.pdf" download>
+      <i class="ti ti-download"></i> Download CV
+    </a>
+    <button class="hamburger" onclick="toggleMobileNav()" aria-label="Open navigation">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </nav>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <a href="#education" onclick="closeMobileNav()">Education</a>
+    <a href="#experience" onclick="closeMobileNav()">Experience</a>
+    <a href="#skills" onclick="closeMobileNav()">Skills</a>
+    <a href="#hobbies" onclick="closeMobileNav()">Hobbies</a>
+    <a href="#downloads" onclick="closeMobileNav()">Downloads</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="about" class="hero">
+    <div class="hero-inner">
+      <div class="hero-photo">LC</div>
+      <div>
+        <p class="hero-eyebrow">Portfolio</p>
+        <h1 class="hero-name">Luyando<br>Cholwe</h1>
+        <p class="hero-title">Food Scientist &amp; Nutritionist · HPCZ Registered</p>
+        <p class="hero-bio">
+          <!-- EDIT THIS BIO: Replace this paragraph with a personal statement in your own words -->
+          A dedicated and self-motivated Food Scientist and Nutritionist with a passion for improving community health through nutrition science, food systems, and compassionate patient care. With hands-on experience spanning clinical nutrition, community outreach, and healthcare, I bring both scientific rigour and a human-centred approach to everything I do.
+        </p>
+        <div class="hero-chips">
+          <span class="chip">BSc Food Science &amp; Nutrition</span>
+          <span class="chip">HPCZ Registered Nutritionist</span>
+          <span class="chip">Chipata, Zambia</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn-primary" href="mailto:luyandocholwe@gmail.com">
+            <i class="ti ti-mail"></i> Email me
+          </a>
+          <a class="btn-outline" href="https://www.linkedin.com/in/luyando-cholwe-460a97158/" target="_blank" rel="noopener">
+            <i class="ti ti-brand-linkedin"></i> LinkedIn
+          </a>
+          <a class="btn-outline" href="CV_-_Luyando_Cholwe.pdf" download>
+            <i class="ti ti-file-cv"></i> Download CV
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <i class="ti ti-chevron-down"></i>
+      <span>Scroll to explore</span>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="section-inner">
+      <p class="section-eyebrow">Academic background</p>
+      <h2 class="section-heading">Education</h2>
+      <div class="edu-list">
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="ti ti-microscope"></i></div>
+          <div>
+            <div class="edu-degree">Bachelor of Science in Food Science and Nutrition</div>
+            <div class="edu-inst">Chalimbana University</div>
+            <div class="edu-year">November 2020 – December 2024 &nbsp;·&nbsp; Graduated with Credit (29 Nov 2024)</div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="ti ti-heart-handshake"></i></div>
+          <div>
+            <div class="edu-degree">Certificate in Health Care Assistant</div>
+            <div class="edu-inst">Loving Touch Health Home Care</div>
+            <div class="edu-year">October 2024 – January 2025</div>
+          </div>
+        </div>
+
+        <div class="edu-card">
+          <div class="edu-icon"><i class="ti ti-school"></i></div>
+          <div>
+            <div class="edu-degree">Secondary School Diploma</div>
+            <div class="edu-inst">Kasenegwa Secondary School</div>
+            <div class="edu-year">January 2013 – December 2017</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- HPCZ Registration -->
+      <div class="hpcz-badge">
+        <i class="ti ti-certificate"></i>
+        HPCZ Registered Nutritionist/Dietician &nbsp;·&nbsp; Cert. No. HPCZ/101/2/53/361 &nbsp;·&nbsp; Valid: 2026
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-eyebrow">Career journey</p>
+      <h2 class="section-heading">Work experience</h2>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Meet and Greeter</div>
+            <div class="tl-org">Unifi</div>
+            <div class="tl-meta">
+              <span><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;"></i> April 2026 – Present</span>
+              <span><i class="ti ti-map-pin" style="font-size:12px;vertical-align:-1px;"></i> Chipata, Eastern Province, Zambia</span>
+            </div>
+          </div>
+          <ul class="tl-desc">
+            <li>Manages client flow and reduces wait times by maintaining an organised queuing system</li>
+            <li>Provides first-line product information, contributing to a positive client onboarding experience</li>
+            <li>Screens and verifies client documentation, ensuring accuracy before consultant review</li>
+            <li>Maintains a calm and professional branch atmosphere, supporting a positive team environment</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Enumerator</div>
+            <div class="tl-org">Catholic Relief Services</div>
+            <div class="tl-meta">
+              <span><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;"></i> Oct 2025 – Nov 2025</span>
+              <span><i class="ti ti-map-pin" style="font-size:12px;vertical-align:-1px;"></i> Lusangazi, Eastern Province, Zambia</span>
+            </div>
+          </div>
+          <ul class="tl-desc">
+            <li>Collected data on women of child-bearing age and children under 2 years</li>
+            <li>Tabulated nutritional status of stakeholders to improve outcomes per the MCDP minimum service package</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Health Care Assistant</div>
+            <div class="tl-org">Kalingalinga Hospice</div>
+            <div class="tl-meta">
+              <span><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;"></i> Jan 2025 – Apr 2025</span>
+              <span><i class="ti ti-map-pin" style="font-size:12px;vertical-align:-1px;"></i> Lusaka, Zambia</span>
+            </div>
+          </div>
+          <ul class="tl-desc">
+            <li>Assisted clients with activities of daily living including bathing, toileting, oral care, vital signs, transfers, and range of motion exercises</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Nutritionist</div>
+            <div class="tl-org">Chongwe District Hospital</div>
+            <div class="tl-meta">
+              <span><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;"></i> Jan 2024 – Mar 2024</span>
+              <span><i class="ti ti-map-pin" style="font-size:12px;vertical-align:-1px;"></i> Chongwe, Lusaka Province, Zambia</span>
+            </div>
+          </div>
+          <ul class="tl-desc">
+            <li>Delivered IEC (Information, Education, and Communication) sessions to patients</li>
+            <li>Facilitated community outreach programmes and provided individual counselling</li>
+          </ul>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-header">
+            <div class="tl-role">Nutritionist</div>
+            <div class="tl-org">Chipata Central Hospital</div>
+            <div class="tl-meta">
+              <span><i class="ti ti-calendar" style="font-size:12px;vertical-align:-1px;"></i> Apr 2023 – Aug 2023</span>
+              <span><i class="ti ti-map-pin" style="font-size:12px;vertical-align:-1px;"></i> Chipata, Eastern Province, Zambia</span>
+            </div>
+          </div>
+          <ul class="tl-desc">
+            <li>Worked in paediatric wards and facilitated community-based health activities</li>
+            <li>Provided Pre-Natal and Post-Natal counselling, assessing the health of mothers and children</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-inner">
+      <p class="section-eyebrow">Capabilities</p>
+      <h2 class="section-heading">Skills &amp; expertise</h2>
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-cat"><i class="ti ti-users" style="font-size:14px;"></i> Customer &amp; Professional</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Customer Service</span>
+            <span class="skill-tag">Client Relationship Management</span>
+            <span class="skill-tag">Communication</span>
+            <span class="skill-tag">Document Verification</span>
+            <span class="skill-tag">Time Management</span>
+            <span class="skill-tag">Team Collaboration</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-cat"><i class="ti ti-flask" style="font-size:14px;"></i> Nutrition &amp; Healthcare</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Clinical Nutrition</span>
+            <span class="skill-tag">Community Outreach</span>
+            <span class="skill-tag">IEC Sessions</span>
+            <span class="skill-tag">Pre &amp; Post-Natal Care</span>
+            <span class="skill-tag">Health Care Assistance</span>
+            <span class="skill-tag">Quality Control</span>
+          </div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-cat"><i class="ti ti-chart-bar" style="font-size:14px;"></i> Research &amp; Technical</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Data Analysis</span>
+            <span class="skill-tag">Qualitative Research</span>
+            <span class="skill-tag">Quantitative Research</span>
+            <span class="skill-tag">Report Writing</span>
+            <span class="skill-tag">Project Management</span>
+            <span class="skill-tag">Problem-Solving</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="lang-row">
+        <div class="lang-chip"><i class="ti ti-language" style="font-size:14px;"></i> English</div>
+        <div class="lang-chip"><i class="ti ti-language" style="font-size:14px;"></i> Nyanja</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOBBIES -->
+  <section id="hobbies">
+    <div class="section-inner">
+      <p class="section-eyebrow">Beyond the lab</p>
+      <h2 class="section-heading">Hobbies &amp; interests</h2>
+      <div class="hobbies-grid">
+
+        <div class="hobby-card">
+          <div class="hobby-emoji">👗</div>
+          <div class="hobby-name">Fashion</div>
+          <div class="hobby-desc">Expressing personality through style and contemporary looks</div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-emoji">💄</div>
+          <div class="hobby-name">Cosmetics</div>
+          <div class="hobby-desc">Passionate about beauty, skincare, and the art of makeup</div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-emoji">🌿</div>
+          <div class="hobby-name">Nature &amp; hiking</div>
+          <div class="hobby-desc">Exploring the outdoors through hiking and camping adventures</div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-emoji">⛪</div>
+          <div class="hobby-name">Church</div>
+          <div class="hobby-desc">Faith and community are a central part of life</div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-emoji">🎌</div>
+          <div class="hobby-name">Anime</div>
+          <div class="hobby-desc">Avid anime fan with a love for storytelling and animation</div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="hobby-emoji">📖</div>
+          <div class="hobby-name">Reading</div>
+          <div class="hobby-desc">Enjoys books spanning nutrition science, fiction, and self-development</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOADS -->
+  <section id="downloads">
+    <div class="section-inner">
+      <p class="section-eyebrow">Documents</p>
+      <h2 class="section-heading">Resume &amp; CV</h2>
+      <div class="downloads-row">
+
+        <div class="dl-card">
+          <div class="dl-icon"><i class="ti ti-file-type-pdf"></i></div>
+          <div class="dl-info">
+            <div class="dl-label">One-page summary</div>
+            <div class="dl-name">Resume</div>
+            <div class="dl-sub">PDF format</div>
+          </div>
+          <a class="dl-btn" href="Luyando_Cholwe_-_Resume_2.pdf" download>
+            <i class="ti ti-download" style="font-size:13px;"></i> Download
+          </a>
+        </div>
+
+        <div class="dl-card">
+          <div class="dl-icon"><i class="ti ti-file-description"></i></div>
+          <div class="dl-info">
+            <div class="dl-label">Full professional record</div>
+            <div class="dl-name">Curriculum Vitae</div>
+            <div class="dl-sub">PDF format</div>
+          </div>
+          <a class="dl-btn" href="CV_-_Luyando_Cholwe.pdf" download>
+            <i class="ti ti-download" style="font-size:13px;"></i> Download
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-eyebrow">Get in touch</p>
+      <h2 class="section-heading">Contact</h2>
+      <div class="contact-wrap">
+        <div class="contact-icon-wrap"><i class="ti ti-sparkles"></i></div>
+        <div class="contact-title">Let's connect</div>
+        <p class="contact-sub">Open to nutrition roles, research collaborations, community health projects, and new opportunities.</p>
+        <div class="contact-links">
+          <a class="contact-link email" href="mailto:luyandocholwe@gmail.com">
+            <i class="ti ti-mail"></i> luyandocholwe@gmail.com
+          </a>
+          <a class="contact-link linkedin" href="https://www.linkedin.com/in/luyando-cholwe-460a97158/" target="_blank" rel="noopener">
+            <i class="ti ti-brand-linkedin"></i> LinkedIn
+          </a>
+          <a class="contact-link phone" href="tel:+260972228901">
+            <i class="ti ti-phone"></i> +260 972 228 901
+          </a>
+          <div class="contact-link location">
+            <i class="ti ti-map-pin"></i> Chipata, Eastern Province, Zambia
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 <span>Luyando Cholwe</span> · Food Scientist &amp; Nutritionist · Chipata, Zambia</p>
+  </footer>
+
+  <script>
+    function toggleMobileNav() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+    function closeMobileNav() {
+      document.getElementById('mobileNav').classList.remove('open');
+    }
+
+    // Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--pink-600)' : '';
+        a.style.fontWeight = a.getAttribute('href') === '#' + current ? '500' : '';
+      });
+    });
+  </script>
+
+</body>
+</html>
